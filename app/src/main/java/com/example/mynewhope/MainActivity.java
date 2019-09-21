@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private static byte[] mImageViewToByte(ImageView mImageView) {
+    public static byte[] mImageViewToByte(ImageView mImageView) {
         Bitmap bitmap= ((BitmapDrawable)mImageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);

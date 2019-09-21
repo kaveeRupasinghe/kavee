@@ -149,12 +149,13 @@ import java.util.ArrayList;
         dialog.setContentView(R.layout.update_dialog);
         dialog.setTitle("Update");
 //                                                       //imageViewRecord
-        imageViewIcon = dialog.findViewById(R.id.imageViewRecord);
-        final EditText edtName = dialog.findViewById(R.id.imageViewRecord);
-        final EditText edtPhone = dialog.findViewById(R.id.imageViewRecord);
-        final EditText edtAddress = dialog.findViewById(R.id.imageViewRecord);
-        final EditText edtEmail = dialog.findViewById(R.id.imageViewRecord);
-        final EditText edtCategory = dialog.findViewById(R.id.imageViewRecord);
+        imageViewIcon = dialog.findViewById(R.id.imageView);
+        final EditText edtName = dialog.findViewById(R.id.edtName);
+        final EditText edtPhone = dialog.findViewById(R.id.edtPhone);
+        final EditText edtAddress = dialog.findViewById(R.id.edtAddress);
+        final EditText edtEmail = dialog.findViewById(R.id.edtEmail);
+        final EditText edtCategory = dialog.findViewById(R.id.edtCategory);
+
         Button btnUpdate = dialog.findViewById(R.id.btnUpdate);
 
         int width = (int) (activity.getResources().getDisplayMetrics().widthPixels*0.95);
@@ -183,7 +184,7 @@ import java.util.ArrayList;
                           edtAddress.getText().toString().trim(),
                           edtEmail.getText().toString().trim(),
                           edtCategory.getText().toString().trim(),
-                            MainActivity.imageViewToByte(imageViewIcon),
+                            MainActivity.mImageViewToByte(imageViewIcon),
                             position
                     );
                     dialog.dismiss();
