@@ -7,13 +7,25 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
-
+    private static final String DATABASE_NAME="StartMart.db";
+    private static final String TABLE_NAME="RECORD";
+    private static final String COL_1="ID";
+    private static final String COL_2="name";
+    private static final String COL_3="phone";
+    private static final String COL_4="email";
+    private static final String COL_5="category";
+    private static final String COL_6="image";
     //constructor
     SQLiteHelper(Context context,
                  String name,
                  SQLiteDatabase.CursorFactory factory,
                  int version){
         super(context, name, factory, version);
+    }
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone INTEGER, email TEXT, category TEXT,image BYTE)");
+
     }
 
     public void queryData(String sql){
@@ -78,10 +90,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = getReadableDatabase();
         return database.rawQuery(sql, null);
     }
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-    }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {

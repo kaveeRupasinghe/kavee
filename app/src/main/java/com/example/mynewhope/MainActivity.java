@@ -150,12 +150,12 @@ public class MainActivity extends AppCompatActivity {
         }
         if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if(requestCode==RESULT_OK){
+            if(requestCode>0){
                 Uri resultUri = result.getUri();
                 //set image choosed from gallery to image view
                 mImageView.setImageURI(resultUri);
             }
-            else if(requestCode==CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+            else if(requestCode<16){
                 Exception error = result.getError();
             }
         }
